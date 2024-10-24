@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surprise for You!</title>
+    <style>
+        body {
+            background-image: url('4.jpg'); /* เปลี่ยนเป็นชื่อไฟล์ภาพที่คุณดาวน์โหลด */
+            background-size: cover; /* ทำให้ภาพเต็มหน้าจอ */
+            background-position: center; /* จัดกลางภาพ */
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            padding: 50px;
+            color: white; /* เปลี่ยนสีตัวอักษรเพื่อให้ชัดเจนขึ้นบนพื้นหลัง */
+        }
+        h1 {
+            font-size: 50px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* เพิ่มเงาให้ข้อความ */
+        }
+        p {
+            font-size: 20px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #ff6666;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        button:hover {
+            background-color: #ff4d4d;
+        }
+    </style>
+</head>
+<body>
+    <h1>Happy Anniversary!(2y4m)</h1>
+    <p>สุขสันต์วันครบรอบนะคะที่รัก มีความสุขมากๆนะคะ รักมากๆเลย</p>
+    <button onclick="revealSurprise()">จิ้มตรงนี้สิ</button>
+    <div id="surprise" style="display:none; margin-top: 20px;">
+        <!-- วิดีโอจากเครื่องคอมพิวเตอร์ -->
+        <video id="surpriseVideo" width="300" controls>
+            <source src="surprise.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <p>อยู่ด้วยกันไปทุกเทศกาลเลยนะ</p>
+    </div>
+
+    <h2>ทำนายดวงสอบของคุณ</h2>
+    <button onclick="predictExam()">ทำนายดวงวันสอบของเชียร์</button>
+    <p id="examResult" style="margin-top: 20px; font-size: 24px;"></p>
+
+    <script>
+        function revealSurprise() {
+            // แสดงวิดีโอ
+            document.getElementById("surprise").style.display = "block";
+            // เล่นวิดีโอโดยอัตโนมัติ
+            var video = document.getElementById("surpriseVideo");
+            video.play();
+        }
+
+        function predictExam() {
+            const examPredictions = [
+                "ฟลุ๊คทำนายว่าคุณจะทำได้ดีแน่นอน! เตรียมตัวให้พร้อมและใจเย็น ๆ",
+                "ฟลุ๊คทำนายว่าอาจมีอุปสรรคบางอย่าง แต่คุณสามารถผ่านมันไปได้!",
+                "ฟลุ๊คทำนายว่าให้ระวังคำถามที่อาจจะทำให้สับสน! ควรเตรียมตัวให้ดี.",
+                "ฟลุ๊คทำนายว่าวันนี้จะเป็นวันที่น่าตื่นเต้นมาก! มีโอกาสได้คะแนนดี.",
+                "ฟลุ๊คทำนายว่ามีความกดดันเล็กน้อย แต่ก็อย่าลืมว่าคุณเตรียมตัวมาแล้ว!",
+                "ฟลุ๊คทำนายว่าระวังสติให้ดีในระหว่างการสอบ ผลจะออกมาดี!",
+                "ฟลุ๊คทำนายว่ามีแนวโน้มว่าจะมีความรู้สึกไม่มั่นใจ แต่คุณจะสามารถเอาชนะได้!",
+                "ฟลุ๊คทำนายว่าคุณจะมีช่วงเวลาที่ดีในห้องสอบ ขอให้โชคดี!",
+                "ฟลุ๊คทำนายว่าอย่าลืมพักผ่อนให้เพียงพอก่อนวันสอบ!",
+                "ฟลุ๊คทำนายว่าวันนี้อาจมีสิ่งที่ไม่คาดคิดเกิดขึ้น แต่คุณสามารถจัดการได้!"
+            ];
+
+            const randomIndex = Math.floor(Math.random() * examPredictions.length);
+            const prediction = examPredictions[randomIndex];
+            document.getElementById("examResult").innerHTML = prediction;
+        }
+    </script>
+</body>
+</html>
